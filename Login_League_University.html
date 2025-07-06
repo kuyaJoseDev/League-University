@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login League University</title>
+
+  <link rel="stylesheet" href="login.css" />
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"/>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Goblin One", serif;
+      background-color: #000;
+      overflow-x: hidden;
+    }
+    
+    #loader-wrapper {
+      position: fixed;
+      inset: 0;
+      background: rgb(252, 252, 255);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease;
+    }
+
+    .loader {
+      position: relative;
+      width: 10em;
+      height: 10em;
+      border: 0.25em solid white;
+      background-color: gold;
+      border-radius: 1em;
+      animation: rotating 2s linear infinite;
+      font-size: 10px;
+    }
+
+    .loader span {
+      position: absolute;
+      width: 10em;
+      height: 10em;
+      border: 0.25em solid white;
+      border-radius: 1em;
+      mix-blend-mode: screen;
+      animation: de-rotating 4s linear infinite;
+    }
+
+    .loader span:nth-child(1) { top: 5em; left: 5em; background-color: pink; }
+    .loader span:nth-child(2) { top: -5em; left: 5em; background-color: brown; }
+    .loader span:nth-child(3) { top: 5em; left: -5em; background-color: violet; }
+    .loader span:nth-child(4) { top: -5em; left: -5em; background-color: chocolate; }
+
+    @keyframes rotating {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes de-rotating {
+      0%, 100% { transform: rotate(0deg) scale(0.5); }
+      50% { transform: rotate(-180deg) scale(1.2); }
+    }
+  </style>
+</head>
+
+<body id="top">
+  <!-- 🔄 Loader Screen -->
+  <div id="loader-wrapper">
+    <div class="loader">
+      <span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <!-- Header + Navigation -->
+  <header class="header">
+    <nav class="nav">
+      <div>
+        <img src="img/League University Logo.jpg" alt="League University Logo" />
+      </div>
+      <ul class="nav_items">
+        <li class="nav_item">
+          <a href="#" class="nav_link">Home</a>
+          <a href="https://www.tiktok.com/@imnotkuyajose" class="nav_link">Social Media</a>
+          <a href="#" class="nav_link">About</a>
+          <a href="#" class="nav_link">Setting</a>
+        </li>
+      </ul>
+      <button class="button" id="form-open">Login</button>
+    </nav>
+  </header>
+  <!-- Login & Signup Form -->
+  <section class="home">
+      <video class="bg-video" autoplay loop playsinline>
+    <source src="video/starguardian.mp4" type="video/mp4">
+    
+  </video>
+    <div class="form_container">
+      <i class="uil uil-times close_icon"></i>
+
+      <div class="form login_form">
+        <form action="#">
+          <h2>Login</h2>
+          <div class="input_box">
+            <input type="email" name="email" placeholder="Enter your email address" required />
+            <i class="uil uil-envelope-alt email"></i>
+          </div>
+          <div class="input_box">
+            <input type="password" name="password" placeholder="Enter your password" required />
+            <i class="uil uil-lock password"></i>
+            <i class="uil uil-eye-slash pw_hide"></i>
+          </div>
+          <div class="option-field">
+            <span class="checkbox">
+              <input type="checkbox" id="check" />
+              <label for="check">Remember me</label>
+            </span>
+            <a href="#" class="forgot_pw">Forgot Password?</a>
+          </div>
+          <button class="button">Submit</button>
+          
+          <div class="login_signup">
+            Don't have an account? <a href="#" id="signup">Sign up</a>
+          </div>
+        </form>
+      </div>
+
+      <div class="form signup_form">
+        <form action="#">
+          <h2>Sign up</h2>
+          <div class="input_box">
+            <input type="email" name="email" placeholder="Enter your email address" required />
+            <i class="uil uil-envelope-alt email"></i>
+          </div>
+          <div class="input_box">
+            <input type="password" name="password" placeholder="Create a password" required />
+            <i class="uil uil-lock password"></i>
+            <i class="uil uil-eye-slash pw_hide"></i>
+          </div>
+          <div class="input_box">
+            <input type="password" name="password" placeholder="Confirm password" required />
+            <i class="uil uil-lock password"></i>
+            <i class="uil uil-eye-slash pw_hide"></i>
+          </div>
+          <button class="button">Sign up</button>
+          <div class="login_signup">
+            Already have an account? <a href="#" id="login">Login</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script>
+    window.addEventListener("load", () => {
+      const loader = document.getElementById("loader-wrapper");
+      loader.style.opacity = "0";
+      loader.style.pointerEvents = "none";
+      setTimeout(() => loader.remove(), 600);
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const formOpenBtn = document.querySelector("#form-open"),
+            home = document.querySelector(".home"),
+            closeIconBtn = document.querySelector(".close_icon"),
+            signupBtn = document.querySelector("#signup"),
+            loginBtn = document.querySelector("#login"),
+            loginForm = document.querySelector(".login_form"),
+            signupForm = document.querySelector(".signup_form"),
+            pwShowHide = document.querySelectorAll(".pw_hide");
+
+      formOpenBtn.addEventListener("click", () => home.classList.add("show"));
+      closeIconBtn.addEventListener("click", () => home.classList.remove("show"));
+ document.addEventListener("DOMContentLoaded", () => {
+    pwShowHide.forEach((icon) => {
+  icon.addEventListener("click", () => {
+    const getPwInput = icon.parentElement.querySelector("input");
+
+    if (getPwInput.type === "password") {
+      getPwInput.type = "text";
+      icon.classList.replace("uil-eye-slash", "uil-eye");
+    } else {
+      getPwInput.type = "password";
+      icon.classList.replace("uil-eye", "uil-eye-slash");
+    }
+  });
+});
+});
+      signupBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        loginForm.style.display = "none";
+        signupForm.style.display = "block";
+      });
+
+      loginBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        signupForm.style.display = "none";
+        loginForm.style.display = "block";
+      });
+    });
+  </script>
+
+  <!-- Optional external JS -->
+  <script src="script.js"></script>
+</body>
+</html>
