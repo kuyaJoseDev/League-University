@@ -24,6 +24,22 @@ a {
     display: inline-block;
     background: linear-gradient(245.59deg, white 0%, lightblue 28.53%, darkblue 75.52%);;
 }
+#loader-wrapper {
+  position: fixed;
+  inset: 0;
+  background: rgb(252, 252, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+
+.loader {
+  width: 150px;
+  height: auto;
+}
+
 .nav {
   max-width: 1100px;
   width: 100%;

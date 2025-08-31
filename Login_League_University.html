@@ -8,14 +8,14 @@
   <link rel="stylesheet" href="login.css" />
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"/>
 
-  <style>
+<style>
     body {
       margin: 0;
       font-family: "Goblin One", serif;
       background-color: #000;
       overflow-x: hidden;
     }
-    
+
     #loader-wrapper {
       position: fixed;
       inset: 0;
@@ -28,38 +28,8 @@
     }
 
     .loader {
-      position: relative;
-      width: 10em;
-      height: 10em;
-      border: 0.25em solid white;
-      background-color: gold;
-      border-radius: 1em;
-      animation: rotating 2s linear infinite;
-      font-size: 10px;
-    }
-
-    .loader span {
-      position: absolute;
-      width: 10em;
-      height: 10em;
-      border: 0.25em solid white;
-      border-radius: 1em;
-      mix-blend-mode: screen;
-      animation: de-rotating 4s linear infinite;
-    }
-
-    .loader span:nth-child(1) { top: 5em; left: 5em; background-color: pink; }
-    .loader span:nth-child(2) { top: -5em; left: 5em; background-color: brown; }
-    .loader span:nth-child(3) { top: 5em; left: -5em; background-color: violet; }
-    .loader span:nth-child(4) { top: -5em; left: -5em; background-color: chocolate; }
-
-    @keyframes rotating {
-      to { transform: rotate(360deg); }
-    }
-
-    @keyframes de-rotating {
-      0%, 100% { transform: rotate(0deg) scale(0.5); }
-      50% { transform: rotate(-180deg) scale(1.2); }
+      width: 150px;
+      height: auto;
     }
   </style>
 </head>
@@ -67,10 +37,9 @@
 <body id="top">
   <!-- 🔄 Loader Screen -->
   <div id="loader-wrapper">
-    <div class="loader">
-      <span></span><span></span><span></span><span></span>
-    </div>
+    <img class="loader" src="img/League University Logo.jpg" alt="Loading..." />
   </div>
+
 
   <!-- Header + Navigation -->
   <header class="header">
